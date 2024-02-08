@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Authorization{% endblock %}
+
+{% block content %}
+
+<div class="form">
+        <button><a href="{% url 'logout' %}">log out</a></button>
+
+
+<h1 style="text-align: center;color:black;"> My notes:</h1>
+
+    {% for note in notes %}
+
+    <p class="my-note" style="text-align: center; color:black;">{{ note.note }}</p>
+
+    {% endfor %}
+
+</div>
+
+
+ <!-- /add_note -->
+<div class="form">
+  <form method="post">
+    <input type="text" placeholder="write your note" name="note-text">
+      {% csrf_token %}
+    <button type="submit">add note</button>
+  </form>
+</div>
+
+{% endblock %}

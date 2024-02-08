@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{%block title %}Registration{%endblock%}
+
+{%block content%}
+  <!-- /reg -->
+
+  <div class="form">
+    <form class="register-form" method="post">
+
+      <input type="text" placeholder="username" name="username">
+      <input type="text" placeholder="first name" name="first_name">
+      <input type="text" placeholder="last name" name="last_name">
+      <input type="email" placeholder="email adress" name="email">
+      <input type="password" placeholder="password" name="password1">
+      <input type="password" placeholder="repeat password" name="password2">
+      {% csrf_token %}
+      <button type="submit" >create</button>
+
+    </form>
+    <br>
+    <a href="{% url 'login' %}">Уже есть аккаунт?</a>
+  </div>
+
+
+{%endblock%}
